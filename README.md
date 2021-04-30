@@ -1,11 +1,11 @@
-### Reloj tiempo Unix
+### **Reloj tiempo Unix**
 En este proyecto vamos a construir un reloj en formato unix. El formato Unix es un formato de tiempo que consiste en el conteo de los segundos que han transcurrido desde el medianoche del 1 de enero de 1970.
 
 
 
 
 
-#Materiales
+###**Materiales**
 1. NodeMcu ESP8266 12 E
 ![](https://www.infootec.net/wp-content/uploads/2015/11/nodemcu_i.jpg)
 1. Módulo MAX7219 (x8) (en la imagen vienen 4 módulos unidos)
@@ -13,7 +13,7 @@ En este proyecto vamos a construir un reloj en formato unix. El formato Unix es 
 1. Wire jumpers hembra-hembra (x4) (como los de la foto de arriba)
 1. [IDE de Arduino](https://www.arduino.cc/en/software "IDE de Arduino")
 
-#Librerías
+###**Librerías**
 1. NTPClient.h
 		Librería para conectarse al servidor NTP. Puedes descargarla [aquí](https://github.com/arduino-libraries/NTPClient "aquí")
 1. ESP8266WiFi.h
@@ -27,7 +27,7 @@ En este proyecto vamos a construir un reloj en formato unix. El formato Unix es 
 1. SPI.h
 		Librería necesaria para la comunicación con dispositivos SPI
 
-#Código
+###**Código**
 Primero comenzaremos incluyendo las librerías que controlan la conexión WiFi y NTP:
 
 ```C++
@@ -96,7 +96,7 @@ void loop() {
 }
 ```
 
-#Montaje
+###**Montaje**
 La mayor complicación que he tenido a la hora de montar el dispositivo ha sido a la hora de unir los dos módulos de 8x32 LED´s de los que disponía, ya que los terminales de salia forman 90 grados con respecto a la base, por lo que he tenido que doblarlos hasta el punto de poder enganchar uno con otro. Esto probablemente se podrá hacer mucho mejor con un soldador y algo de estaño.
 
 ![](https://scontent-mad1-1.xx.fbcdn.net/v/t1.6435-9/179765178_10219580067474163_3422660642364219507_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=730e14&_nc_ohc=0zyB0Ets42EAX8dMxlW&_nc_ht=scontent-mad1-1.xx&oh=3e1ff741da129a9f2a02f4aacfec6e00&oe=60B0497F)
