@@ -106,6 +106,7 @@ void loop() {
 ```
 
 ###**Montaje**
+
 La mayor complicación que he tenido a la hora de montar el dispositivo ha sido a la hora de unir los dos módulos de 8x32 LED´s de los que disponía, ya que los terminales de salia forman 90 grados con respecto a la base, por lo que he tenido que doblarlos hasta el punto de poder enganchar uno con otro. Esto probablemente se podrá hacer mucho mejor con un soldador y algo de estaño.
 
 ![](https://scontent-mad1-1.xx.fbcdn.net/v/t1.6435-9/179765178_10219580067474163_3422660642364219507_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=730e14&_nc_ohc=0zyB0Ets42EAX8dMxlW&_nc_ht=scontent-mad1-1.xx&oh=3e1ff741da129a9f2a02f4aacfec6e00&oe=60B0497F)
