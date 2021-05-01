@@ -28,13 +28,15 @@ En este proyecto vamos a construir un reloj en formato unix. El formato Unix es 
 		Librería necesaria para la comunicación con dispositivos SPI
 
 ###**Código**
+
 Primero comenzaremos incluyendo las librerías que controlan la conexión WiFi y NTP:
 
 ```C++
-#include <NTPClient.h> //importamos la librería del cliente NTP
+#include <NTPClient.h>//importamos la librería del cliente NTP
 #include <ESP8266WiFi.h> //librería necesaria para la conexión wifi
 #include <WiFiUdp.h> // importamos librería UDP para comunicar con NTP 
-            ```
+```
+
 Seguimos incluyendo las libreías para el control de la matriz de LED´s:
 ```C++
 #include <MD_Parola.h>
@@ -43,6 +45,7 @@ Seguimos incluyendo las libreías para el control de la matriz de LED´s:
 ```
 
 Vamos a definir las variables necesarias para el correcto funcionamiento de las bibliotecas, así como los puertos en los que conectaremos la matriz de LED´s al NodeMcu. El tipo de hardware que tenemos lo podemos consultar en la librería MD_MAX7219. Puedes consultarla [aquí](file:///C:/Users/stief/Documents/Arduino/libraries/MD_MAX72XX/docs/class_m_d___m_a_x72_x_x.html "aquí"). Recordad que una matriz de 8x8 se considera un solo dispositivo.
+
 ```C++
 #define HARDWARE_TYPE MD_MAX72XX::FC16_HW
 #define MAX_DEVICES 8// 
@@ -51,9 +54,11 @@ Vamos a definir las variables necesarias para el correcto funcionamiento de las 
 #define DATA_PIN  13
 #define CS_PIN    2
 ```
+
 Creamos ahora un objeto para la comunicación con el hardware:
-```C++
-MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);```
+
+`MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);`
+
 
 Tambien debemos definir el cliente udp para poder comunicarnos con el servidor NTP y especificar el servidor al que nos queremos conectar, así como su offset (tiempo de retraso en la hora de nuestro pais respecto a la zona horaria del servidos NTP al que nos hayamos conectado) y la tasa de actualización. En nuestro caso el offset es 0 ya que estamos tomando la hora del servidor NTP del Real Instituto y Observatorio de la Armada (San Fernando, Cadiz)  que es la hora oficial de España. La tasa de actualización recomiendo que sea alta, porque si es demasiado baja se nota visualmente en el paso de los segundos, que va a trompicones
 ```C++
@@ -63,12 +68,14 @@ NTPClient timeClient(ntpUDP, "hora.roa.es",0,300000);
 ```
 
 Definimos las variables que almacenaran el nombre y la contraseña de la red WiFi a la que nos conectaremos, y una variable para almacenar el tiempo en formato unix.
+
 ```C++
 const char *ssid     = "Nombre de tu red";
 const char *password = "Contraseña de tu red";
 unsigned long tiempoUnix;
 ```
 En la función setup() iniciaremos la comunicación serial, aunque solo la usaremos a modo de depuración. También iniciaremos comunicación con la matriz de LED´s, conectaremos el NodeMcu a la red WiFi y una vez conectados iniciaremos el cliente NTP:
+
 ```C++
 void setup() {
   Serial.begin(115200); 
@@ -84,7 +91,9 @@ void setup() {
   timeClient.begin();
 }
 ```
+
 En la función loop() nos sincronizaremos con el servidor NTP, recogeremos el tiempo en la variable tiempoUnix, y la mostraremos por la matriz de LED´s y por el terminal:
+
 ```C++
 void loop() {
 
